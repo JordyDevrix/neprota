@@ -2,6 +2,7 @@
 # dit is een comment, dit voert het programma niet uit
 
 TEKST verhaal "lorem ipsum is een leuk verhaal"
+TEKST verhaa "goed verhaal"
 WAARHEID iets = WAAR
 
 LEES a

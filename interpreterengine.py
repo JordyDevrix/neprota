@@ -2,6 +2,7 @@ import sys
 from if_statements import *
 from booleans import *
 from berekeningen import *
+from  functies_engine import  *
 
 bestands_pad = sys.argv[1]
 # bestands_pad = "script.nept"
@@ -72,33 +73,45 @@ for indx, regel in enumerate(programma_regels):
 
 # HELE GETALLEN
     if commando_delen[0] == "HEELGETAL" and not skippen:
-        if len(commando_delen) <= 3 or commando_delen[2].isnumeric():
-            print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+        if commando_delen[1] in variabele:
+            print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
             exit()
-        elif commando_delen[2] == "=":
-            getal_waarde = commando_delen[3]
-            variabele[commando_delen[1]] = int(getal_waarde)
+        else:
+            if len(commando_delen) <= 3 or commando_delen[2].isnumeric():
+                print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+                exit()
+            elif commando_delen[2] == "=":
+                getal_waarde = commando_delen[3]
+                variabele[commando_delen[1]] = int(getal_waarde)
 
 # KOMMA GETALLEN
     if commando_delen[0] == "KOMMAGETAL" and not skippen:
-        if len(commando_delen) <= 3:
-            print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+        if commando_delen[1] in variabele:
+            print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
             exit()
-        elif commando_delen[2] == "=":
-            getal_waarde = commando_delen[3]
-            variabele[commando_delen[1]] = float(getal_waarde)
+        else:
+            if len(commando_delen) <= 3:
+                print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+                exit()
+            elif commando_delen[2] == "=":
+                getal_waarde = commando_delen[3]
+                variabele[commando_delen[1]] = float(getal_waarde)
 
 # TEKST VARIABELEN
     if commando_delen[0] == "TEKST" and not skippen:
-        stringzin = []
-        if commando_delen[1].startswith('"'):
-            print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+        if commando_delen[1] in variabele:
+            print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
             exit()
         else:
-            for word in commando_delen[2:]:
-                stringzin.append(word)
-            stringzinbewerkt = " ".join(stringzin).replace('"', '')
-            variabele[commando_delen[1]] = stringzinbewerkt
+            stringzin = []
+            if commando_delen[1].startswith('"'):
+                print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+                exit()
+            else:
+                for word in commando_delen[2:]:
+                    stringzin.append(word)
+                stringzinbewerkt = " ".join(stringzin).replace('"', '')
+                variabele[commando_delen[1]] = stringzinbewerkt
 
 # IF STATEMENTS
     if commando_delen[0] == "ALS":
@@ -110,11 +123,19 @@ for indx, regel in enumerate(programma_regels):
 
 # BOOLEANS
     if commando_delen[0] == "WAARHEID" and not skippen:
-        variabele[commando_delen[1]] = controleren_op_waarheid(commando_delen, regel, idx)
+        if commando_delen[1] in variabele:
+            print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
+            exit()
+        else:
+            variabele[commando_delen[1]] = controleren_op_waarheid(commando_delen, regel, idx)
+
+    if commando_delen[0] == "FUNCTIE":
+        functie_aanmaken(commando_delen)
+
+    if commando_delen[0] == "DOE" and not skippen:
+        functie_draaien(commando_delen)
+
 
     # print(skippen, in_aantal_functies, functie_to_skip, "op regelnummer", idx)
     # print("aantal func: ", in_aantal_functies, "op regel", idx)
-
-
-
 
