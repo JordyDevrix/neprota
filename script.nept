@@ -1,0 +1,34 @@
+
+# dit is een comment, dit voert het programma niet uit
+
+TEKST verhaal "lorem ipsum is een leuk verhaal"
+WAARHEID iets = WAAR
+
+LEES a
+ALS a > 3 DAN {
+    SCHRIJF "Dit moet hij wel printen"
+
+    ALS 1 > 2 DAN {
+        SCHRIJF "dit moet hij niet printen"
+    }
+	# HEELGETAL ja = 4
+	
+    ALS WAAR {
+        SCHRIJF "Dit moet hij ook printen"
+        ALS 2 > 1 DAN {
+            SCHRIJF "En dit ook"
+            ALS 2 > 1 DAN {
+                SCHRIJF "En dit"
+            }
+        }
+    }
+}
+
+HEELGETAL b = 5
+KOMMAGETAL c = 3.5
+
+REKEN a b c - NAAR d
+REKEN a c + NAAR f
+
+SCHRIJF "%verhaal% %d% %f%"
+

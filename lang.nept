@@ -1,0 +1,10 @@
+HEELGETAL a = 1
+KOMMAGETAL b = 0.5
+WAARHEID c = WAAR
+TEKST d "lorem ipsum"
+LEES e
+REKEN a b e - NAAR f
+SCHRIJF "Het juiste antwoord is %f%"
+ALS c DAN {
+    SCHRIJF "c is waar"
+}
