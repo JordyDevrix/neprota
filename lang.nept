@@ -1,5 +1,5 @@
-FUNCTIE naam {
-    SCHRIJF "hallo wereld"
-}
+WAARHEID conditie = WAAR
 
-DOE naam
+ALS conditie DAN {
+	SCHRIJF "hallo wereld"
+}
