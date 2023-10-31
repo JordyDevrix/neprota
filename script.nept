@@ -1,5 +1,6 @@
 
 # dit is een comment, dit voert het programma niet uit
+DEFINEER waarde 3;
 
 TEKST verhaal "lorem ipsum is een leuk verhaal"
 TEKST verhaa "goed verhaal"
@@ -27,8 +28,11 @@ ALS a > 3 DAN {
 
 HEELGETAL b = 5
 KOMMAGETAL c = 3.5
-HEELGETAL d = 2
 REKEN (2*PI) NAAR d
 
-SCHRIJF "%verhaal% %e%"
+SCHRIJF "%verhaal% + %d%"
+
+BIJWERKEN $waarde = "geen getal meer he?"
+
+SCHRIJF "%verhaal% + %d%"
 

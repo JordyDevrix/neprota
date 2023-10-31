@@ -3,7 +3,8 @@ from if_statements import *
 from booleans import *
 from berekeningen import *
 from wiskunde import *
-from  functies_engine import  *
+from functies_engine import *
+from bijwerken import *
 
 bestands_pad = sys.argv[1]
 # bestands_pad = "script.nept"
@@ -46,8 +47,13 @@ for indx, regel in enumerate(programma_regels):
             bewerkt_woord = woord.replace('"', '').strip()
             if bewerkt_woord.startswith("%") and bewerkt_woord.endswith("%"):
                 variabelnaam = bewerkt_woord.replace("%", "")
-                if variabelnaam in variabele:
-                    check = variabele[variabelnaam]
+                variabele_x = {}
+                for variabelen in variabele:
+                    variabel = variabelen.replace("$", "")
+                    variabele_x[variabel] = variabele[variabelen]
+
+                if variabelnaam in variabele_x:
+                    check = variabele_x[variabelnaam]
                     zin.append(str(check))
                 else:
                     print(f"probleem in: {regel}\n\tfout in lijn {idx}: deze variabele is niet gedifinieerd")
@@ -134,7 +140,7 @@ for indx, regel in enumerate(programma_regels):
                 functie_to_skip = in_aantal_functies
         in_aantal_functies += 1
 
-# BOOLEANS
+# BOOLEANS MAKEN
     if commando_delen[0] == "WAARHEID" and not skippen:
         if commando_delen[1] in variabele:
             print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
@@ -148,6 +154,19 @@ for indx, regel in enumerate(programma_regels):
     if commando_delen[0] == "DOE" and not skippen:
         functie_draaien(commando_delen)
 
+# VARIABELE BEWERKEN
+    if commando_delen[0] == "BIJWERKEN" and not skippen:
+        bijwerken_variabele(commando_delen, variabele, regel, idx)
+
+# VARIABELEN DEFINEREN
+    if commando_delen[0] == "DEFINEER" and not skippen:
+        for deel in commando_delen:
+            if ";" in deel:
+                if commando_delen[2].startswith('"'):
+                    print(f"probleem in: {regel}\n\tfout in lijn {idx}: TEKST kan niet gedefinieerd worden")
+                    exit()
+                else:
+                    variabele[f"${commando_delen[1]}"] = commando_delen[2].replace(";", "")
 
     # print(skippen, in_aantal_functies, functie_to_skip, "op regelnummer", idx)
     # print("aantal func: ", in_aantal_functies, "op regel", idx)

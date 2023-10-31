@@ -1,5 +1,5 @@
-WAARHEID conditie = WAAR
+DEFINEER waarde WAAR;
 
-ALS conditie DAN {
-	SCHRIJF "hallo wereld"
+ALS waarde == WAAR DAN {
+	SCHRIJF "%waarde%"
 }
