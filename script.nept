@@ -27,9 +27,8 @@ ALS a > 3 DAN {
 
 HEELGETAL b = 5
 KOMMAGETAL c = 3.5
+HEELGETAL d = 2
+REKEN (2*PI) NAAR d
 
-REKEN a b c - NAAR d
-REKEN a c + NAAR f
-
-SCHRIJF "%verhaal% %d% %f%"
+SCHRIJF "%verhaal% %e%"
 

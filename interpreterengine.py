@@ -2,6 +2,7 @@ import sys
 from if_statements import *
 from booleans import *
 from berekeningen import *
+from wiskunde import *
 from  functies_engine import  *
 
 bestands_pad = sys.argv[1]
@@ -45,8 +46,12 @@ for indx, regel in enumerate(programma_regels):
             bewerkt_woord = woord.replace('"', '').strip()
             if bewerkt_woord.startswith("%") and bewerkt_woord.endswith("%"):
                 variabelnaam = bewerkt_woord.replace("%", "")
-                check = variabele[variabelnaam]
-                zin.append(str(check))
+                if variabelnaam in variabele:
+                    check = variabele[variabelnaam]
+                    zin.append(str(check))
+                else:
+                    print(f"probleem in: {regel}\n\tfout in lijn {idx}: deze variabele is niet gedifinieerd")
+                    exit()
             else:
                 zin.append(bewerkt_woord)
 
@@ -69,7 +74,15 @@ for indx, regel in enumerate(programma_regels):
 
 # BASIS BEREKENINGEN
     if commando_delen[0] == "REKEN" and not skippen:
-        basis_berekening(commando_delen, variabele)
+        antwoord = wiskunde_basis(commando_delen)
+        if len(commando_delen) > 2:
+            if commando_delen[2] == "NAAR":
+                if commando_delen[3] in variabele:
+                    print(f"probleem in: {regel}\n\tfout in lijn {idx}: dubbele variabele naam")
+                    exit()
+                else:
+                    variabele[commando_delen[3]] = antwoord
+
 
 # HELE GETALLEN
     if commando_delen[0] == "HEELGETAL" and not skippen:
