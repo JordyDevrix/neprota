@@ -4,6 +4,8 @@
 TEKST verhaal "lorem ipsum is een leuk verhaal"
 TEKST verhaa "goed verhaal"
 WAARHEID iets = WAAR
+TEKST kut "iets leuks"
+SCHRIJF "%kut%"
 
 FUNCTIE naam {
     SCHRIJF "hallo wereld"
