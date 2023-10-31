@@ -8,3 +8,5 @@ equipped with a full guide as to how scripting in Neprota works. This project is
 and I expect to make some major updates with loads of new features.
 
 **_note: It can be very usefull to know some words in Dutch_**
+
+[license: ](LICENSE.txt)
