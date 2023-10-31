@@ -2,9 +2,11 @@
 # dit is een comment, dit voert het programma niet uit
 DEFINEER waarde 3;
 
-TEKST verhaal "lorem ipsum is een leuk verhaal"
+TEKST verhaal "nu is het"
 TEKST verhaa "goed verhaal"
 WAARHEID iets = WAAR
+
+FUNCTIE
 
 LEES a
 ALS a > 3 DAN {
@@ -32,7 +34,7 @@ REKEN (2*PI) NAAR d
 
 SCHRIJF "%verhaal% + %d%"
 
-BIJWERKEN $waarde = "geen getal meer he?"
+BIJWERKEN d = "geen getal meer he?"
 
-SCHRIJF "%verhaal% + %d%"
+SCHRIJF "%verhaal% %d%"
 

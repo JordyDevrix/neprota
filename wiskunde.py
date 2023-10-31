@@ -53,7 +53,6 @@ def wiskunde_basis(regel):
                             expressie_delen.append(expressie_reverse[nummer:])
             elif expressie[idx] == "P":
                 if expressie[idx+1] == "I":
-                    print("PI")
                     skipcounter = 1
                     expressie_delen.append("3.14159265359")
             else:
