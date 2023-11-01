@@ -6,8 +6,6 @@ TEKST verhaal "nu is het"
 TEKST verhaa "goed verhaal"
 WAARHEID iets = WAAR
 
-FUNCTIE
-
 LEES a
 ALS a > 3 DAN {
     SCHRIJF "Dit moet hij wel printen"
@@ -17,7 +15,7 @@ ALS a > 3 DAN {
     }
 	# HEELGETAL ja = 4
 	
-    ALS WAAR {
+    ALS iets {
         SCHRIJF "Dit moet hij ook printen"
         ALS 2 > 1 DAN {
             SCHRIJF "En dit ook"

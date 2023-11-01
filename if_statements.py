@@ -15,7 +15,7 @@ def check_voor_bool(variabele_begin, vergelijker, variabele_eind):
             return True
 
 
-def uitvoeren_if_stat(commando_delen, variabele, in_aantal_functies):
+def uitvoeren_if_stat(commando_delen, variabele, regel, idx):
     waarheidstatus = False
     variabele_x = {}
     for variabelen in variabele:
@@ -46,4 +46,7 @@ def uitvoeren_if_stat(commando_delen, variabele, in_aantal_functies):
     elif commando_delen[1] == "ONWAAR" or not waarheidstatus:
         skippen = True
         return skippen
+    else:
+        print(f"probleem in: {regel}\n\tfout in lijn {idx}: repareer alstublieft om door te gaan")
+        exit()
 

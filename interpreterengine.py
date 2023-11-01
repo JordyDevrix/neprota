@@ -135,7 +135,7 @@ for indx, regel in enumerate(programma_regels):
 # IF STATEMENTS
     if commando_delen[0] == "ALS":
         if not skippen:
-            skippen = uitvoeren_if_stat(commando_delen, variabele, in_aantal_functies)
+            skippen = uitvoeren_if_stat(commando_delen, variabele, regel, idx)
             if skippen:
                 functie_to_skip = in_aantal_functies
         in_aantal_functies += 1

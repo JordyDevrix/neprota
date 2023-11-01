@@ -3,7 +3,7 @@
 
 TEKST verhaal "lorem ipsum is een leuk verhaal"
 TEKST verhaa "goed verhaal"
-WAARHEID iets = WAAR
+WAARHEID iets = ONWAAR
 TEKST kut "iets leuks"
 SCHRIJF "%kut%"
 
@@ -22,7 +22,7 @@ ALS a > 3 DAN {
     }
 	# HEELGETAL ja = 4
 
-    ALS WAAR {
+    ALS iets {
         SCHRIJF "Dit moet hij ook printen"
         ALS 2 > 1 DAN {
             SCHRIJF "En dit ook"
