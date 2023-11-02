@@ -13,4 +13,5 @@ finish though and I expect to make some major updates with loads of new features
 
 ><sup>As already made clear  in the [license](LICENSE.txt), I am not liable for any of the 
 damages that may occure when using this project. This project has code that if not handled with care
-may damage your files or OS. Please be cautious and don't change anything you don't know of.</sup>
+may damage your files or OS. Please be cautious and don't change anything you don't know of. For questions please mail
+info@dvrx.one</sup>
